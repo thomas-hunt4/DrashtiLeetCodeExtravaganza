@@ -18,17 +18,19 @@ def romanToInt(s) -> int:
     for characters in s:
         values.append(letters[characters])
           
-    for i in values:
+    for i in range(len(values) -1):
             
-        if i+1 < len(values):
-            if values[i] >= values[i+1]:
-                total += values[i]
-            else:
-                total -= values[i]
+        # if i+1 < len(values):
+        if values[i] < values[i+1]:
+            total -= values[i]
+        else:
+            total += values[i]
+    
+    last_value = total + values[-1]
 
-    print(values)
        
-    return total
+    return last_value
                     
 
-print(romanToInt('XIX'))
+# print(romanToInt('XIX'))
+print(romanToInt('MCMXCIV'))
