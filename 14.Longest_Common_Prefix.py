@@ -23,26 +23,38 @@ Constraints:
 strs[i] consists of only lowercase English letters if it is non-empty.
 """
 
-def longestCommonPrefix(self, strs: List[str]) -> str:
-    #create list to store values of prefixes from string []
+def longestCommonPrefix(Lst): 
     
+    prefix_list = [] #create list to store values of prefixes from string []
+    count_list = [] # built to store counts of prefix
     
-    
-    #loop/iterate through list items strings
-        #check index 0 and 1 of each list item
-        #save index 0 and 1 of each list item to created list storage as string
+    for word in Lst: #loop/iterate through list items strings
+        prefix_list.append(word[0:2])       #check index 0 and 1 of each list item
+                                            #save index 0 and 1 of each list item to created list storage as string
 
-    #for prefixes stored in created list
-            #compare strings in stored list to find most common
-            #return the most common prefix
+    for prefix in prefix_list:
+        # count_list = [[prefix, prefix_list.count(prefix)] for prefix in set(prefix_list)]
+        count_list.append(prefix_list.count(prefix))
+        max_count = max(count_list)
+        index = count_list.index(max_count)
+        if max_count < 2:
+            return ""
+        else:
+            return prefix_list[index]
     
+        # count_list = prefix_list.count(prefix)   #for prefixes stored in created list
+                                                 #compare strings in stored list to find most common
+                                                 #return the most common prefix
+        
     #handle edge case
         #if no common prefix return empty string
-        #reorder logic if needed
+        #reorder logic if needed 
     
-        
-    
-    
+
+
+# Lst = ["flower","flow","flight"]        
+Lst = ["dog","racecar","car"]    
+print(longestCommonPrefix(Lst))  
 
     
         
